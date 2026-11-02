@@ -115,6 +115,16 @@ Read [the measured results and failures](docs/EVALUATION.md). Reports contain ea
 
 This tiny hand-authored dataset is a development diagnostic over four synthetic documents, not an independent benchmark or evidence of production accuracy. Do not use its scores to claim performance on real company documents.
 
+## Security evaluation
+
+The [security lab](docs/SECURITY_EVALUATION.md) adds 28 labelled cases, paired clean controls, isolated document fixtures, two ingestion configurations, and JSON/HTML reports.
+
+```bash
+python run.py security --output reports/security_offline.json
+```
+
+Measured offline results: injected text was retrieved in **12/12** baseline document cases and **0/12** with the trusted manifest. The manifest also excluded two legitimate new-document controls (**6/8** clean keyword-proxy passes versus **8/8** baseline). These are retrieval/utility results, not measured LLM attack success. Live Gemini experiments remain separate.
+
 ## Tests
 
 ```bash
@@ -125,7 +135,7 @@ $env:PYTHONPATH = "src"
 python -m unittest discover -s tests -v
 ```
 
-Tests cover retrieval, chunking, citation rejection, missing credentials, mocked Gemini requests/cache behaviour and local HTTP handling. All 22 tests passed locally with the PDF parser installed. The PDF test skips if that optional dependency is absent. The first CI run passed on Python 3.11 and 3.12, including Docker build and container evaluation; [inspect the actual run](https://github.com/Assem-Ch7/rag-document-assistant/actions/runs/41530375264).
+Tests cover retrieval, chunking, citation rejection, missing credentials, mocked Gemini requests/cache behaviour, security verdicts, corpus integrity, async execution and local HTTP handling. All 47 tests passed locally with the PDF parser installed. The PDF test skips if that optional dependency is absent. The original CI run passed on Python 3.11 and 3.12, including Docker build and container evaluation; [inspect that run](https://github.com/Assem-Ch7/rag-document-assistant/actions/runs/41530375264). The security extension adds its own offline and container checks to the workflow.
 
 ## Project history
 
