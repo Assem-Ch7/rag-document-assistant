@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grounded-document-assistant"
+version = "0.1.0"
+description = "A citation-aware document assistant with offline retrieval and optional Gemini RAG"
+requires-python = ">=3.11"
+authors = [{name = "Assem Chebly"}]
+dependencies = []
+
+[project.optional-dependencies]
+pdf = ["pypdf==6.10.0"]
+
+[project.scripts]
+grounded-rag = "grounded_rag.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+grounded_rag = ["static/*.html"]
