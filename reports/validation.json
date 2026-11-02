@@ -4,7 +4,8 @@
   "http_integration": "passed against a local HTTP server",
   "browser_smoke_checks": ["Supported vibration question returns cited excerpts", "Unrelated football question abstains"],
   "docker_compose_config": "validated using docker compose config --quiet",
-  "docker_build_and_run": "not verified: Docker engine unavailable even after a startup attempt",
+  "docker_build_and_run": "passed in GitHub CI on both matrix jobs; local Docker engine remained unavailable",
+  "github_ci": {"run_id": 41530375264, "url": "https://github.com/Assem-Ch7/rag-document-assistant/actions/runs/41530375264", "python_3_11": "success", "python_3_12": "success", "tested_commit": "d395fa1c21dd2fe2307aa0a29435471105c5bcf4"},
   "gemini_live_api": "not run: no user-supplied API credentials used",
   "gemini_contract_tests": "mocked; not a substitute for a live API evaluation",
   "notes": "Initial sandbox failures for temporary files and localhost connections were resolved by using a workspace temporary directory and granting network access before the successful test run."

@@ -101,7 +101,7 @@ docker run --rm --env-file .env -p 127.0.0.1:8765:8765 grounded-rag \
   --mode gemini serve --host 0.0.0.0 --port 8765
 ```
 
-The default image does not install the optional PDF parser. Docker engine startup, image build and container execution must be checked on a machine with a running Docker engine; they were not successfully executed during initial preparation.
+The default image does not install the optional PDF parser. Docker build and container evaluation passed in [GitHub CI run 41530375264](https://github.com/Assem-Ch7/rag-document-assistant/actions/runs/41530375264). The local Windows Docker engine was unavailable; the CI result does not establish that Docker Desktop works on that machine.
 
 ## Evaluation
 
@@ -125,12 +125,14 @@ $env:PYTHONPATH = "src"
 python -m unittest discover -s tests -v
 ```
 
-Tests cover retrieval, chunking, citation rejection, missing credentials, mocked Gemini requests/cache behaviour and local HTTP handling. The PDF test skips if the optional parser is absent. CI runs offline checks and attempts a Docker build; a workflow file is not proof that CI has already passed.
+Tests cover retrieval, chunking, citation rejection, missing credentials, mocked Gemini requests/cache behaviour and local HTTP handling. All 22 tests passed locally with the PDF parser installed. The PDF test skips if that optional dependency is absent. The first CI run passed on Python 3.11 and 3.12, including Docker build and container evaluation; [inspect the actual run](https://github.com/Assem-Ch7/rag-document-assistant/actions/runs/41530375264).
 
 ## Contribution and provenance
 
 Original notebook supplied by **[Assem Chebly](https://github.com/Assem-Ch7/)** during his AI4CI studies. The cleaned notebook retains source cells while removing outputs, execution history and personal runtime metadata. Its original private document corpus is not included.
 
-The application structure, offline baseline, UI, tests, Docker setup and evaluation materials were created with **Codex-assisted implementation**. Assem should review the code, run Gemini/Docker validation, and be able to explain the design before presenting these additions as independently mastered skills. See [the contribution record](docs/CONTRIBUTION.md) and [interview walkthrough](docs/WALKTHROUGH.md).
+The application structure, offline baseline, UI, tests, Docker setup and evaluation materials were created with **Codex-assisted implementation**. Assem should review the code, run the demo himself and validate live Gemini before presenting these additions as independently mastered skills. See [the contribution record](docs/CONTRIBUTION.md) and [interview walkthrough](docs/WALKTHROUGH.md).
+
+API references: [Gemini embeddings](https://ai.google.dev/gemini-api/docs/embeddings), [structured outputs](https://ai.google.dev/gemini-api/docs/structured-output). The bundled web server is a local demonstration, not a production deployment.
 
 This is an educational portfolio prototype, not a deployed company system. No original model training, autonomous agent, production deployment or real predictive-maintenance outcome is claimed. No repository-wide licence has been selected.
