@@ -1,0 +1,19 @@
+name: Offline checks
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m unittest discover -s tests -v
+        env:
+          PYTHONPATH: src
+      - run: python run.py evaluate --output /tmp/offline.json
+      - run: docker build -t grounded-rag .
+      - run: docker run --rm grounded-rag evaluate --output /tmp/evaluation.json

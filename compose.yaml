@@ -1,0 +1,11 @@
+services:
+  assistant:
+    build: .
+    ports:
+      - "127.0.0.1:8765:8765"
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
