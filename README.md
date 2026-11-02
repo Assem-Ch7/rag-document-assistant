@@ -135,7 +135,7 @@ $env:PYTHONPATH = "src"
 python -m unittest discover -s tests -v
 ```
 
-Tests cover retrieval, chunking, citation rejection, missing credentials, mocked Gemini requests/cache behaviour, security verdicts, corpus integrity, async execution and local HTTP handling. All 47 tests passed locally with the PDF parser installed. The PDF test skips if that optional dependency is absent. The original CI run passed on Python 3.11 and 3.12, including Docker build and container evaluation; [inspect that run](https://github.com/Assem-Ch7/rag-document-assistant/actions/runs/41530375264). The security extension adds its own offline and container checks to the workflow.
+Tests cover retrieval, chunking, citation rejection, missing credentials, mocked Gemini requests/cache behaviour, security verdicts, corpus integrity, async execution and local HTTP handling. All 49 tests passed locally with the PDF parser installed. The PDF test skips if that optional dependency is absent. The original CI run passed on Python 3.11 and 3.12, including Docker build and container evaluation; [inspect that run](https://github.com/Assem-Ch7/rag-document-assistant/actions/runs/41530375264). The security extension adds its own offline and container checks to the workflow.
 
 ## Project history
 

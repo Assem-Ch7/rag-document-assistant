@@ -129,6 +129,8 @@ class LocalHTTPAdapter:
         self.url, self.timeout, self.retries = url, timeout, retries
         self.headers = {'Content-Type': 'application/json'}
         if bearer_token:
+            if not isinstance(bearer_token, str) or len(bearer_token) > 4096 or any(not 33 <= ord(c) <= 126 for c in bearer_token):
+                raise ValueError('Bearer token must be bounded printable ASCII without spaces or control characters')
             self.headers['Authorization'] = 'Bearer ' + bearer_token
         self.opener = build_opener(ProxyHandler({}), NoRedirect())
 
