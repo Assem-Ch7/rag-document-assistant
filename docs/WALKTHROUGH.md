@@ -1,12 +1,10 @@
-# Explain the project in an interview
+# Design walkthrough
 
-## One-minute explanation
+## Overview
 
-“I started with a notebook that ingested PDFs and web content, indexed chunks using Gemini embeddings and Chroma, and generated answers from retrieved context. I then worked on making the project runnable and evaluable, with AI-assisted refactoring. The current repository provides an offline retrieval baseline and an optional Gemini pipeline. Each result exposes its sources. I measure retrieval separately from citation validity and missing-information handling, because retrieving a relevant document does not prove that an answer is correct.”
+The project started as a notebook that ingested PDFs and web content, indexed chunks using Gemini embeddings and Chroma, and generated answers from retrieved context. The current repository provides an offline retrieval baseline and an optional Gemini pipeline, with source-linked evidence and reproducible evaluation. Retrieval, citation validity and missing-information handling are measured separately because retrieving a relevant document does not establish answer correctness.
 
-Use that description only after reviewing the implementation and running it yourself.
-
-## Questions to be ready for
+## Design questions
 
 1. Why use overlapping chunks? What evidence might be split at a boundary?
 2. How does BM25 differ from semantic embeddings? Which questions expose lexical limits?

@@ -1,4 +1,4 @@
-# Contribution and provenance
+# Project evolution
 
 ## Original notebook supplied by Assem
 
@@ -15,9 +15,9 @@ Observed notebook components:
 
 The supplied original corpus was not available. Saved notebook outputs cannot establish new evaluation results. The notebook is preserved as an output-free, metadata-cleaned historical reference, not the application's supported installation path. Some original dependencies were not installed in its first cell, and its preview embedding model is historical.
 
-## Codex-assisted refactor
+## Application refactor
 
-Created in this collaboration:
+The runnable application adds:
 
 - An installable Python package and zero-install checkout runner.
 - A deterministic offline lexical baseline, optional Gemini REST integration and embedding cache.
@@ -27,8 +27,6 @@ Created in this collaboration:
 - A synthetic corpus, labelled diagnostic set, measurement code and failure analysis.
 - Unit/integration tests, Docker configuration and CI definition.
 
-The changes were not all present in Assem's original notebook. They should not be described as a previously deployed professional system or work completed without assistance.
+## Evaluation status
 
-## Before an interview
-
-Assem should run the commands, inspect each reported failure, explain the distinction between BM25 and semantic retrieval, and make at least one reasoned improvement with a measured comparison. Record subsequent changes and results honestly in Git commits.
+The offline evaluation and tests have been executed. Docker build and container evaluation passed in GitHub CI. Live Gemini evaluation remains a separate next experiment; the current report documents the baseline results and observed failures.

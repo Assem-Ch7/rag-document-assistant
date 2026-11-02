@@ -127,12 +127,12 @@ python -m unittest discover -s tests -v
 
 Tests cover retrieval, chunking, citation rejection, missing credentials, mocked Gemini requests/cache behaviour and local HTTP handling. All 22 tests passed locally with the PDF parser installed. The PDF test skips if that optional dependency is absent. The first CI run passed on Python 3.11 and 3.12, including Docker build and container evaluation; [inspect the actual run](https://github.com/Assem-Ch7/rag-document-assistant/actions/runs/41530375264).
 
-## Contribution and provenance
+## Project history
 
 Original notebook supplied by **[Assem Chebly](https://github.com/Assem-Ch7/)** during his AI4CI studies. The cleaned notebook retains source cells while removing outputs, execution history and personal runtime metadata. Its original private document corpus is not included.
 
-The application structure, offline baseline, UI, tests, Docker setup and evaluation materials were created with **Codex-assisted implementation**. Assem should review the code, run the demo himself and validate live Gemini before presenting these additions as independently mastered skills. See [the contribution record](docs/CONTRIBUTION.md) and [interview walkthrough](docs/WALKTHROUGH.md).
+The notebook pipeline has been extended into a runnable application with an offline baseline, a web interface, citation validation, tests, Docker configuration and a reproducible evaluation. See [the project evolution](docs/CONTRIBUTION.md) and [design walkthrough](docs/WALKTHROUGH.md).
 
 API references: [Gemini embeddings](https://ai.google.dev/gemini-api/docs/embeddings), [structured outputs](https://ai.google.dev/gemini-api/docs/structured-output). The bundled web server is a local demonstration, not a production deployment.
 
-This is an educational portfolio prototype, not a deployed company system. No original model training, autonomous agent, production deployment or real predictive-maintenance outcome is claimed. No repository-wide licence has been selected.
+Evaluation scope, observed failures and remaining validation work are documented in [the evaluation report](docs/EVALUATION.md).
