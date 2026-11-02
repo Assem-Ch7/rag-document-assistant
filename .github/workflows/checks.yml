@@ -15,5 +15,8 @@ jobs:
         env:
           PYTHONPATH: src
       - run: python run.py evaluate --output /tmp/offline.json
+      - run: python run.py security --output /tmp/security.json
+      - run: python -c "import json; r=json.load(open('/tmp/security.json')); assert all(s['execution_errors']==0 for s in r['summary']); assert all(s['application_success_rate_lower_bound'] is None for s in r['summary']); assert r['case_count']==28"
       - run: docker build -t grounded-rag .
       - run: docker run --rm grounded-rag evaluate --output /tmp/evaluation.json
+      - run: docker run --rm grounded-rag security --output /tmp/security.json

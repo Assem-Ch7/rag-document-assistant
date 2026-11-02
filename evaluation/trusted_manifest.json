@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "description": "Approved bytes for the clean fictional sample corpus; generated before applying any security fixtures.",
+  "files": {
+    "actuator_guide.md": "7a1f678fbc6abc424974c58d3f0ca542aac6925b34ed5cd4374ec9ed808723cc",
+    "monitoring_runbook.md": "91747bb17b90776cb163b6c6d00814ab19c65fda3c89d3d6fe79146737cc9170",
+    "pump_manual.md": "a28605233e446d9a8e86fcea76add13fbdefbe8b9cf803cc62917342b6138474",
+    "telemetry_api.md": "74556eedb5e4fcac137e8430cc11c09ec8ecb73f5757352741ec2c78d0a775ba"
+  }
+}
